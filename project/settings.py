@@ -142,7 +142,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-CSRF_TRUSTED_ORIGINS = ['https://dada-elearning.azurewebsites.net']
+CSRF_TRUSTED_ORIGINS = ['https://elearning-dada.azurewebsites.net']
 
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
