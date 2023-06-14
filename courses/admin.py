@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Course, Category
+from .models import Course, Category, Comment
 from django.utils.text import slugify
 # Register your models here.
 
@@ -13,14 +13,6 @@ class CourseAdmin(admin.ModelAdmin):
         super().save_model(request, obj, form, change)
 
 
-class InlineCategory(admin.StackedInline):
-    model = Course
-    extra = 1
-
-
-class CategoryAdmin(admin.ModelAdmin):
-    inlines = [InlineCategory]
-
-
 admin.site.register(Course, CourseAdmin)
-admin.site.register(Category, CategoryAdmin)
+admin.site.register(Category)
+admin.site.register(Comment)

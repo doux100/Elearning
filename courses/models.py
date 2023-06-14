@@ -12,6 +12,10 @@ class Category(models.Model):
         return self.name
 
 
+class Comment(models.Model):
+    comment = models.TextField(max_length=250)
+
+
 class Course(models.Model):
     name = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=7, decimal_places=2)
@@ -28,3 +32,14 @@ class Course(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    course = models.ForeignKey(
+        Course, on_delete=models.CASCADE, related_name='comments', null=True)
+    comment = models.TextField(max_length=250)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+
+    def __str__(self):
+        return f"Comment by {self.user.username} on {self.course.name}"

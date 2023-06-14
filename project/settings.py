@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'courses',
     'about',
     'users',
+    "bootstrap4",
+    'django_filters',
     # 'rest_framework',
 ]
 GRAPPELLI_ADMIN_TITLE = 'DaDa'
@@ -149,3 +151,6 @@ EMAIL_HOST_USER = 'doux0111@gmail.com'
 EMAIL_HOST_PASSWORD = 'dzqnrpjnqojtrjgx'
 EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
+
+LOGIN_REDIRECT_URL = 'home:home'
+LOGIN_URL = 'users:login'

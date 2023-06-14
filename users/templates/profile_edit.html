@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% block content %}
+<div class="container-xxl py-5">
+    <div class="container col-lg-6 d-flex align-items-center rounded bg-light flex-column p-4">
+        <h1>Profile</h1>
+        <div>
+            <h4>edit profile</h4>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% bootstrap_form userform %}
+                <br>
+                {% bootstrap_form profileform %}
+                <br>
+                <button class="btn btn-info text-white w-100" type="submit">Change Now</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

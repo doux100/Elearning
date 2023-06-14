@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% block content %}
+<div class="container-xxl py-5">
+    <div class="container col-lg-6 d-flex align-items-center rounded bg-light flex-column p-4">
+        <h1>login</h1>
+        <div>
+            <form method="post" novalidate>
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <button class="btn btn-info text-white w-100" type="submit">login</button>
+            </form>
+            <div class="card-footer text-muted text-center">don't have an account <a
+                    href="{% url 'users:signup' %}">create one</a></div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
