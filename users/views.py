@@ -15,7 +15,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             auth_login(request, user)
-            return redirect('home:home')
+            return redirect('users:profile_edit')
     else:
         form = signupform
     cont = {'form': form}
