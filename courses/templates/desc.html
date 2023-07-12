@@ -2,7 +2,7 @@
 {% block content %}
 <div class="container-xxl py-5 d-flex justify-content-center">
     <div class=" d-flex align-items-center rounded bg-light flex-column p-4 w-50">
-        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="col-lg-4 col-md-6 wow fadeInUp w-100" data-wow-delay="0.1s">
             <div class="course-item bg-light">
                 <div class="position-relative overflow-hidden">
                     <img class="img-fluid w-100 h-100" src="{{course.image.url}}" alt="">
@@ -17,20 +17,34 @@
                             class="fa fa-user-tie text-primary me-2"></i>{{course.instructor}}</small>
                     <small class="flex-fill text-center border-end py-2"><i
                             class="fa fa-clock text-primary me-2"></i>{{course.period}}</small>
-                    <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30
-                        Students</small>
                 </div>
-                <a href="#" class="w-100 flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 30px ;">Join
+                <a href="{% url 'courses:courses_enroll' course.slug%}"
+                    class="w-100 flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 30px ;">Join
                     Now</a>
                 <form method="post" class="pt-4">
                     {% csrf_token %}
                     {% bootstrap_form form %}
                     <input type="hidden" name="course_id" value="{{ course.id }}">
                     <button class="btn btn-info text-white w-100" type="submit">Comment</button>
+
                 </form>
+                <div class="container p-0 overflow-auto " style="height: 500px;">
+                    {% for student in student %}
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <img class="border rounded-circle  " src="{{student.user.profile.image.url}}"
+                                style="width: 60px; height: 60px;">
+                            <div class="" style="padding-left: 80px;margin-top: -60px;">
+                                <h5 class="card-title p-0 m-0">{{student.user.first_name}}</h5>
+                                <small class="text-black-50">{{student.created_at}} </small>
+                                <p class="card-text">{{student.comment}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 {% endblock content %}

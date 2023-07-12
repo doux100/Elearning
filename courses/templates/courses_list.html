@@ -24,20 +24,13 @@
                                     <a href="{% url 'courses:course_desc' course.slug%}"
                                         class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end"
                                         style="border-radius: 30px 0 0 30px;">Read More</a>
-                                    <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3"
+                                    <a href="{% url 'courses:courses_enroll' course.slug%}"
+                                        class="flex-shrink-0 btn btn-sm btn-primary px-3"
                                         style="border-radius: 0 30px 30px 0;">Join Now</a>
                                 </div>
                             </div>
                             <div class="text-center p-4 pb-0">
                                 <h3 class="mb-0">${{course.price}}</h3>
-                                <div class="mb-3">
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small>(123)</small>
-                                </div>
                                 <h5 class="mb-4">{{course}}</h5>
                             </div>
                             <div class="d-flex border-top">
@@ -45,8 +38,6 @@
                                         class="fa fa-user-tie text-primary me-2"></i>{{course.instructor}}</small>
                                 <small class="flex-fill text-center border-end py-2"><i
                                         class="fa fa-clock text-primary me-2"></i>{{course.period}}</small>
-                                <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30
-                                    Students</small>
                             </div>
                         </div>
                     </div>

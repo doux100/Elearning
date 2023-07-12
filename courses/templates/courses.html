@@ -90,7 +90,7 @@
             <h1 class="mb-5">Popular Courses</h1>
         </div>
         <div class="row g-4 justify-content-center">
-            {% for course in course %}
+            {% for course in course|slice:":6" %}
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="course-item bg-light">
                     <div class="position-relative overflow-hidden" style="max-height: 165px;">
@@ -99,7 +99,8 @@
                             <a href="{% url 'courses:course_desc' course.slug%}"
                                 class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end"
                                 style="border-radius: 30px 0 0 30px;">Read More</a>
-                            <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3"
+                            <a href="{% url 'courses:courses_enroll' course.slug%}"
+                                class="flex-shrink-0 btn btn-sm btn-primary px-3"
                                 style="border-radius: 0 30px 30px 0;">Join Now</a>
                         </div>
                     </div>
@@ -112,8 +113,6 @@
                                 class="fa fa-user-tie text-primary me-2"></i>{{course.instructor}}</small>
                         <small class="flex-fill text-center border-end py-2"><i
                                 class="fa fa-clock text-primary me-2"></i>{{course.period}}</small>
-                        <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30
-                            Students</small>
                     </div>
                 </div>
             </div>
@@ -139,11 +138,11 @@
         <div class="owl-carousel testimonial-carousel position-relative h-100">
             {% for student in student %}
             <div class="testimonial-item text-center ">
-                <img class="border rounded-circle p-2 mx-auto mb-3 " src="img/testimonial-1.jpg"
+                <img class="border rounded-circle p-2 mx-auto mb-3 " src="{{student.user.profile.image.url}}"
                     style="width: 80px; height: 80px;">
                 <h5 class="mb-0">{{student.user.first_name}}</h5>
                 <p>{{student.course|truncatechars:50}}</p>
-                <div class="testimonial-text bg-light text-center p-4">
+                <div class="testimonial-text bg-light text-center p-4" style="word-wrap: break-word;">
                     <p class="mb-0">{{student.comment}}</p>
                 </div>
             </div>
