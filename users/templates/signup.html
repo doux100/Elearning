@@ -5,10 +5,15 @@
     <div class="container col-lg-6 d-flex align-items-center rounded bg-light flex-column p-4">
         <h1>SignUp</h1>
         <div>
-            <form method="post" novalidate>
+            <form method="post">
                 {% csrf_token %}
                 {% bootstrap_form form %}
-                <button class="btn btn-info text-white w-100" type="submit">Signup</button>
+                {% for error in form.captcha.errors %}
+                <p class="text-danger">{{error}}</p>
+                {% endfor %}
+                <div class="col-12">
+                    <button class="btn btn-info text-white w-100" type="submit">Signup</button>
+                </div>
             </form>
             <div class="card-footer text-muted text-center">already have an account <a
                     href="{% url 'users:login' %}">login</a>

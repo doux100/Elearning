@@ -33,6 +33,8 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'grappelli',
+    'captcha',
+    'users',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,9 +47,10 @@ INSTALLED_APPS = [
     'contact',
     'courses',
     'about',
-    'users',
     "bootstrap4",
     'django_filters',
+    'django_seed',
+
     # 'rest_framework',
 ]
 GRAPPELLI_ADMIN_TITLE = 'DaDa'
@@ -154,3 +157,7 @@ EMAIL_USE_TLS = True
 
 LOGIN_REDIRECT_URL = 'home:home'
 LOGIN_URL = 'users:login'
+
+
+RECAPTCHA_PUBLIC_KEY = '6LcNbisnAAAAAAPiVUmvLtiBoQ3rO0vP_Zug24xi'
+RECAPTCHA_PRIVATE_KEY = '6LcNbisnAAAAANA8CnK0eI45Ah1pmp7VqhL74U-O'

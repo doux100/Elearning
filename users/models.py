@@ -8,7 +8,8 @@ from django.db.models.signals import post_save
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='users/', blank=True, null=True)
+    image = models.ImageField(upload_to='users/', blank=True,
+                              null=True, default=r'\users\profile-42914_640.webp')
 
     def __str__(self):
         return self.user.username
