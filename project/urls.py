@@ -28,3 +28,4 @@ urlpatterns = [
     path('about/', include('about.urls', namespace='about')),
     path('users/', include('users.urls', namespace='users')),
 ]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+handler404 = 'home.views.error_404'

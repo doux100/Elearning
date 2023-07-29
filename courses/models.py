@@ -12,10 +12,6 @@ class Category(models.Model):
         return self.name
 
 
-class Comment(models.Model):
-    comment = models.TextField(max_length=250)
-
-
 class Course(models.Model):
     name = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=7, decimal_places=2)

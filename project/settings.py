@@ -24,8 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-k-!h^!y9@yl3(lv6p3+w=rkw4am)u)k9dy5!8kh5e$)s)4*aq)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+DEBUG = False
+DEBUG_PROPAGATE_EXCEPTIONS = True
 ALLOWED_HOSTS = ['*']
 
 
@@ -147,8 +147,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = ['https://elearning-dada.azurewebsites.net']
 
-
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+ADMINS = [('Pc_super', 'doux0111@gmail.com')]
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'doux0111@gmail.com'
 EMAIL_HOST_PASSWORD = 'dzqnrpjnqojtrjgx'

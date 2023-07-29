@@ -15,3 +15,6 @@ def home(request):
     cont = {'course': course, 'category': category,
             'team': team, 'student': student}
     return render(request, 'index.html', cont)
+
+def error_404(request, exception):
+    return render(request,'notfound.html')
