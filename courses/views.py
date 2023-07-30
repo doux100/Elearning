@@ -2,7 +2,7 @@ from django.conf import settings
 from django.core.mail import send_mail
 from .filters import CourseFilter
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render,get_object_or_404
 from .models import Course, Category, Comment
 from .forms import CommentForm
 # Create your views here.
@@ -30,7 +30,7 @@ def courses_list(request):
 
 @login_required
 def course_desc(request, slug):
-    course = Course.objects.get(slug=slug)
+    course = get_object_or_404(Course, slug=slug)
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():

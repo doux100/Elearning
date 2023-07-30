@@ -20,12 +20,14 @@ from django.contrib import admin
 from django.urls import path, include
 urlpatterns = [
     path('grappelli/', include('grappelli.urls')),
-    path('admin/', admin.site.urls),
+    path('supervisor/', admin.site.urls),
     path('', include('home.urls', namespace='home')),
     path('our-team/', include('our_team.urls', namespace='our_team')),
     path('courses/', include('courses.urls', namespace='courses')),
     path('contact/', include('contact.urls', namespace='contact')),
     path('about/', include('about.urls', namespace='about')),
     path('users/', include('users.urls', namespace='users')),
+    # (r'^media/(?P<path>.*)$', 'django.views.static.serve',
+    #                     {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
 ]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 handler404 = 'home.views.error_404'
