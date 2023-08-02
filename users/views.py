@@ -1,5 +1,4 @@
-from django.urls import reverse, reverse_lazy
-from django.views.generic import UpdateView
+from django.urls import reverse
 from django.shortcuts import redirect, render
 from django.contrib.auth import login as auth_login
 

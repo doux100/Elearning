@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load bootstrap4 %}
+{% load socialaccount %}
 {% block content %}
 <div class="container-xxl py-5">
     <div class="container col-lg-6 d-flex align-items-center rounded bg-light flex-column p-4">
@@ -13,6 +14,12 @@
                 {% endfor %}
                 <div class="col-12">
                     <button class="btn btn-info text-white w-100" type="submit">Signup</button>
+                </div>
+                <p class="w-100 text-center p-2 m-0">or</p>
+                <div class="btn w-100 border mb-2 d-flex justify-content-sm-around "><img style="width: 25px;"
+                        src="/media/users/google.jpg" alt=""><a class="w-100"
+                        href="{% provider_login_url 'google' %}?next={% url 'users:profile_edit' %}">signup Using
+                        Google</a>
                 </div>
             </form>
             <div class="card-footer text-muted text-center">already have an account <a

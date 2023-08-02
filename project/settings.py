@@ -30,12 +30,18 @@ ALLOWED_HOSTS = ['*']
 
 
 # Application definition
+SITE_ID=1
 
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'grappelli',
     'captcha',
     'users',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,6 +59,17 @@ INSTALLED_APPS = [
     'django_seed',
     # 'rest_framework',
 ]
+SOCIALACCOUNT_LOGIN_ON_GET=True
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS':{'access_type':'online'}
+    }
+}
+
 GRAPPELLI_ADMIN_TITLE = 'DaDa'
 
 MIDDLEWARE = [
@@ -156,9 +173,15 @@ EMAIL_HOST_PASSWORD = 'dzqnrpjnqojtrjgx'
 EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
 
+RECAPTCHA_PUBLIC_KEY = '6LcNbisnAAAAAAPiVUmvLtiBoQ3rO0vP_Zug24xi'
+RECAPTCHA_PRIVATE_KEY = '6LcNbisnAAAAANA8CnK0eI45Ah1pmp7VqhL74U-O'
+
 LOGIN_REDIRECT_URL = 'home:home'
 LOGIN_URL = 'users:login'
 
 
-RECAPTCHA_PUBLIC_KEY = '6LcNbisnAAAAAAPiVUmvLtiBoQ3rO0vP_Zug24xi'
-RECAPTCHA_PRIVATE_KEY = '6LcNbisnAAAAANA8CnK0eI45Ah1pmp7VqhL74U-O'
+
+AUTHENTICATION_BACKEND=(
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
