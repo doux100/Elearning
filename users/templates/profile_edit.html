@@ -5,6 +5,13 @@
     <div class="container col-lg-6 d-flex align-items-center rounded bg-light flex-column p-4">
         <h1>Profile</h1>
         <div>
+            <div>
+                <div class="single_candidates text-center">
+                    <div class="thumb">
+                        <img src="{{profile.image.url}} " class="rounded-circle" style="width: 20%;" alt="">
+                    </div>
+                </div>
+            </div>
             <h4>edit profile</h4>
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}

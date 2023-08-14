@@ -25,12 +25,12 @@ SECRET_KEY = 'django-insecure-k-!h^!y9@yl3(lv6p3+w=rkw4am)u)k9dy5!8kh5e$)s)4*aq)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-DEBUG_PROPAGATE_EXCEPTIONS = True
+# DEBUG_PROPAGATE_EXCEPTIONS = True
 ALLOWED_HOSTS = ['*']
 
 
-# Application definition
 SITE_ID=1
+# Application definition
 
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',

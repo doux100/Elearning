@@ -11,6 +11,12 @@
                 {% bootstrap_form form %}
                 <button class="btn btn-info text-white w-100" type="submit">login</button>
             </form>
+            <p class="w-100 text-center p-2 m-0">or</p>
+            <div class="btn w-100 border mb-2 d-flex justify-content-sm-around "><img style="width: 25px;"
+                    src="/media/users/google.jpg" alt=""><a class="w-100" href="{% provider_login_url 'google' %}">login
+                    Using
+                    Google</a>
+            </div>
             <div class="card-footer text-muted text-center">don't have an account <a
                     href="{% url 'users:signup' %}">create one</a></div>
         </div>

@@ -42,4 +42,4 @@ def profile_edit(request):
     else:
         userform = Userform(instance=request.user)
         profileform = Profileform(instance=profile)
-    return render(request, 'profile_edit.html', {'profileform': profileform, 'userform': userform})
+    return render(request, 'profile_edit.html', {'profileform': profileform, 'userform': userform,'profile': profile})
