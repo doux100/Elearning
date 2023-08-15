@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-k-!h^!y9@yl3(lv6p3+w=rkw4am)u)k9dy5!8kh5e$)s)4*aq)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG_PROPAGATE_EXCEPTIONS = True
-ALLOWED_HOSTS = ['*']
+DEBUG = False
+DEBUG_PROPAGATE_EXCEPTIONS = True
+ALLOWED_HOSTS = ['elearning-dada.azurewebsites.net']
 
 
 SITE_ID=1
